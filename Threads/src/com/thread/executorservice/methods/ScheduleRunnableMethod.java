@@ -13,15 +13,16 @@ public static void main(String[] args) throws InterruptedException, ExecutionExc
 		
 		ScheduledExecutorService service = Executors.newScheduledThreadPool(5);
 
-		ScheduledFuture scheduledFuture = service.schedule(
-
-				new Runnable() {
+		ScheduledFuture scheduledFuture = service.schedule(new Runnable() {
+					
 					@Override
 					public void run() {
 						System.out.println("Executed!");
-					}
-				}, 5, // After 5 Second it will execute the task.
-				TimeUnit.SECONDS);		
+						}
+					},
+		    5, //After 5 Second it will execute the task.
+		    TimeUnit.SECONDS);
+		
 		
 					//OR  Java8 Lamda Style
 		

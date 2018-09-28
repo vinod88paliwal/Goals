@@ -20,6 +20,7 @@ public class ScheduledExecutorServiceScheduleAtFixedRate {
 		//service.shutdown();
 	}
 	
+	
 }
 
 //I  have a cup of coffee, which takes 10 minutes. Suppose that starts at midnight, I'd have

@@ -6,8 +6,20 @@ public class ThreadsPrinting123InSequence {
 	private int flag=1;
 	private int MAX = 20;
 	
+public static void main(String[] args) throws InterruptedException {
+	ThreadsPrinting123InSequence obj = new ThreadsPrinting123InSequence();
+	
+	Thread t1 = new Thread(() ->{ obj.print1();});
+	Thread t2 = new Thread(() ->{ obj.print2();});
+	Thread t3 = new Thread(() ->{ obj.print3();});
+	
+	t1.start();
+	t2.start();
+	t3.start();
+	}
+	
+	
 	public void print1() {
-		
 		synchronized (this) {
 			while (count < MAX) {
 				
@@ -65,26 +77,6 @@ public class ThreadsPrinting123InSequence {
 				notify();
 			}
 		}
-	}
-	
-	public static void main(String[] args) throws InterruptedException
-	{
-		ThreadsPrinting123InSequence obj = new ThreadsPrinting123InSequence();
-
-		Thread t1 = new Thread(() -> {
-			obj.print1();
-		});
-		Thread t2 = new Thread(() -> {
-			obj.print2();
-		});
-		Thread t3 = new Thread(() -> {
-			obj.print3();
-		});
-
-		t2.start();
-		t1.start();
-		
-		t3.start();
 	}
 }
 

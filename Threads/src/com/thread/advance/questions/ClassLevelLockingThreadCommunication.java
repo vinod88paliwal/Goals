@@ -19,7 +19,7 @@ public class ClassLevelLockingThreadCommunication {
 			}
 		}).start();
 
-		new Thread(new Runnable() {
+	/*	new Thread(new Runnable() {
 			@Override
 			public void run() {
 				ClassLevelLockingThreadCommunication.getC();
@@ -32,7 +32,7 @@ public class ClassLevelLockingThreadCommunication {
 				ClassLevelLockingThreadCommunication.getD();
 			}
 		}).start();
-
+*/
 	}
 
 	/*** INSTANCE METHOD ***/
@@ -43,7 +43,6 @@ public class ClassLevelLockingThreadCommunication {
 		//	System.out.println("No other methoda call on same object till below line (wait() call)");
 		System.out.println( "ClassLevelLockingThreadCommunication.getA() :" + Thread.currentThread().getName() + " is waiting for other thread to call notify() or notifyAll() on same object");
 			wait();   //it releases the lock on classLockingObj so another Thread on same Obj (classLockingObj) is able to enter in another Method (getB()). It waits for other thread of same object to call the notify() or notifyAll() to come out from waiting state.
-		System.out.println( "ClassLevelLockingThreadCommunication.getA() :" + Thread.currentThread().getName() + " came-out from waiting state");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

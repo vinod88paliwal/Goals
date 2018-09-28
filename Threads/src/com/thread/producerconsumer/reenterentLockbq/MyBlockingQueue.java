@@ -27,8 +27,9 @@ public class MyBlockingQueue
         try
         {
             if (sharedq.size() == capacity)
+            {
                     notFull.await();
-            
+            }
             sharedq.add(i);
             notEmpty.signal();
         }

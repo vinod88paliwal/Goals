@@ -11,6 +11,7 @@ public class InvokeAnyMethod {
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
+	ExecutorService service = Executors.newSingleThreadExecutor();
 	Set<Callable<String>> callSet = new HashSet<>();
 	
 	callSet.add(new Callable<String>() {
@@ -25,9 +26,7 @@ public class InvokeAnyMethod {
 	Callable<String> c3 =() ->{ return "Task3";};  //Java8 style
 	callSet.add(c3);
 
-	ExecutorService service = Executors.newSingleThreadExecutor();
 	String result =  service.invokeAny(callSet);
-	
 	System.out.println("Result = " + result);
 	
 	service.shutdown();

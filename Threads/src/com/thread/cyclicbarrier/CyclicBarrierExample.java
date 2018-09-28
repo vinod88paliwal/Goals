@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CyclicBarrierExample {
-//private volatile int barCount =0;
+private volatile int barCount =0;
 
     //Runnable task for each thread
     private static class Task implements Runnable {

@@ -1,6 +1,6 @@
 package com.thread.advance.questions;
 /*
- Yes, It will be executed in synchronized way because sy1.hello() and sy2.hello() both synchronized on the same STATIC object "obj" 
+ Yes, It will be executed in synchronized way because sy1.hello() and sy2.hello() both synchronize on the same STATIC object "obj" 
   and hence execute in synchronized way.
  */
 class SynchronizationExample {

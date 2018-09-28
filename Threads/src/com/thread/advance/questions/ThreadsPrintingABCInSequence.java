@@ -1,93 +1,88 @@
 package com.thread.advance.questions;
 
 public class ThreadsPrintingABCInSequence {
-	int flag = 1;
+	 int flag = 1;
+	 public static void main(String[] args) {
+		 
+		 ThreadsPrintingABCInSequence obj = new ThreadsPrintingABCInSequence();
+	 
+		 Thread t1 = new Thread(()-> { obj.printA();  });
+		 Thread t2 = new Thread(()-> { obj.printB();  });
+		 Thread t3 = new Thread(()-> { obj.printC();  });
+					
+			t1.start();
+			t2.start();
+			t3.start();
+	    }
+	 
+	 public void printA() {
+			try{
+		        synchronized (this) {
 
-	public void printA() {
-		try {
-			synchronized (this) {
+		            for (int i = 0; i < 5; i++) {
 
-				for (int i = 0; i < 5; i++) {
+		                while(flag!=1){
+		                    wait();
+		                }
 
-					while (flag != 1) {
-						wait();
-					}
+		                System.out.print("A ");
+		                Thread.sleep(100);
+		                flag = 2;
+		                notifyAll();
+		            }
 
-					System.out.print("A ");
-					Thread.sleep(100);
-					flag = 2;
-					notifyAll();
-				}
-
-			}
-		} catch (Exception e) {
-			System.out.println("Exception 1 :" + e.getMessage());
+		        }
+		    }catch (Exception e) {
+		        System.out.println("Exception 1 :"+e.getMessage());
+		    }
 		}
-	}
+	 
+	 public void printB() {
+			try{
+		        synchronized (this) {
 
-	public void printB() {
-		try {
-			synchronized (this) {
+		            for (int i = 0; i < 5; i++) {
 
-				for (int i = 0; i < 5; i++) {
+		                while(flag!=2){
+		                    wait();
+		                }
 
-					while (flag != 2) {
-						wait();
-					}
+		                System.out.print("B ");
+		                Thread.sleep(100);
+		                flag = 3;
+		                notifyAll();
+		            }
 
-					System.out.print("B ");
-					Thread.sleep(100);
-					flag = 3;
-					notifyAll();
-				}
-
-			}
-		} catch (Exception e) {
-			System.out.println("Exception 1 :" + e.getMessage());
+		        }
+		    }catch (Exception e) {
+		        System.out.println("Exception 1 :"+e.getMessage());
+		    }
 		}
-	}
+	 
+	 public void printC() {
+			try{
+		        synchronized (this) {
 
-	public void printC() {
-		try {
-			synchronized (this) {
+		            for (int i = 0; i < 5; i++) {
 
-				for (int i = 0; i < 5; i++) {
+		                while(flag!=3){
+		                    wait();
+		                }
 
-					while (flag != 3) {
-						wait();
-					}
+		                System.out.print("C ");
+		                Thread.sleep(100);
+		                flag = 1;
+		                notifyAll();
+		            }
 
-					System.out.print("C ");
-					Thread.sleep(100);
-					flag = 1;
-					notifyAll();
-				}
-
-			}
-		} catch (Exception e) {
-			System.out.println("Exception 1 :" + e.getMessage());
+		        }
+		    }catch (Exception e) {
+		        System.out.println("Exception 1 :"+e.getMessage());
+		    }
 		}
-	}
 
-	public static void main(String[] args) {
-
-		ThreadsPrintingABCInSequence obj = new ThreadsPrintingABCInSequence();
-
-		Thread t1 = new Thread(() -> {
-			obj.printA();
-		});
-		Thread t2 = new Thread(() -> {
-			obj.printB();
-		});
-		Thread t3 = new Thread(() -> {
-			obj.printC();
-		});
-
-		t1.start();
-		t2.start();
-		t3.start();
-	}
 }
+
 
 //Old Style
 

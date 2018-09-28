@@ -13,6 +13,7 @@ public class InvokeAllMethod {
 
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
+		ExecutorService service = Executors.newSingleThreadExecutor();
 		Set<Callable<String>> callSet = new HashSet<>();
 		
 		callSet.add(new Callable<String>() {
@@ -27,7 +28,6 @@ public class InvokeAllMethod {
 		Callable<String> c3 =() ->{ return "Task3";};  //Java8 style
 		callSet.add(c3);
 
-		ExecutorService service = Executors.newSingleThreadExecutor();
 		List<Future<String>> futuresResult =  service.invokeAll(callSet);
 		
 		futuresResult.forEach(future -> {

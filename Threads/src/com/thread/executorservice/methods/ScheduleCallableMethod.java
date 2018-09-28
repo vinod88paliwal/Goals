@@ -28,7 +28,7 @@ public class ScheduleCallableMethod {
 		
 					//OR  Java8 Lamda Style
 		
-		ScheduledFuture scheduledFuture = service.schedule(   () -> {
+		ScheduledFuture scheduledFuture = service.schedule(() -> {
 			       
 			            System.out.println("Executed!");
 			            return "Called!";

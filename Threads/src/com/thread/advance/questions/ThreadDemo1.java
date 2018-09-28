@@ -22,7 +22,6 @@ public class ThreadDemo1 {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("Leaving get1()");
 		}
 	}
 
@@ -33,13 +32,6 @@ public class ThreadDemo1 {
 	public void get3() {
 		synchronized (lock) {
 			System.out.println("get3() "+abc);
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("Leaving get3()");
 		}
 	}
 

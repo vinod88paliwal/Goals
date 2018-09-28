@@ -7,6 +7,7 @@ import java.util.TreeMap;
 public class HashCodeEqualsForTreeMap {
 
 public static void main(String[] args) {
+		System.out.println("dfd");
 		
 	Emp obj1 = new Emp(2,"ABC");
 	Emp obj2 = new Emp(1,"DEF");
@@ -29,6 +30,7 @@ public static void main(String[] args) {
 		for(Emp e : keys) {
 			//System.out.println(e.id+" "+e.name);
 			System.out.println(map.get(e));
+			
 		}
 		
 		

@@ -24,8 +24,10 @@ public class ArmstrongTest{
         }
     }
     private static boolean isArmStrong(int number) {
+    	
         int result = 0;
         int orig = number;
+        
         while(number != 0){
             int remainder = number%10;
             result = result + remainder*remainder*remainder;

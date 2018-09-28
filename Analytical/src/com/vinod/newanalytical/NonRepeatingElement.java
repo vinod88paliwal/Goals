@@ -10,7 +10,6 @@ public class NonRepeatingElement {
 		NonRepeatingElement obj = new NonRepeatingElement();
 		
 		int arr[] = { 9, 4, 9, 6, 7, 4, 5, 9 };
-		int len = arr.length;
 		
 		Map<Integer, Integer> dupMap = new HashMap<>();
 		

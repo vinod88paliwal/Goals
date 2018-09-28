@@ -4,8 +4,8 @@ public class DeleteConsecutiveSameWordsInASequence {
 	
 	// This function recursively removes duplicates and returns modified string
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) 
+	{
 		DeleteConsecutiveSameWordsInASequence obj =  new DeleteConsecutiveSameWordsInASequence();
 		String str = "jaaaaaavvvvvaaa";
 		

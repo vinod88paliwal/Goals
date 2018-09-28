@@ -1,7 +1,5 @@
 package com.oops.inheritance;
 
-import java.util.ArrayList;
-
 public class B extends A {
 	
 	private void priv()
@@ -9,10 +7,10 @@ public class B extends A {
 		System.out.println("B priv()");
 	}
 	
-	/*@Override
+	@Override
 	public void show(int i){
 		System.out.println("show(int i) -- B");
-	}*/
+	}
 	public void show(int i, int j){
 		System.out.println("show(int i, int j) -- B");
 	}	
@@ -49,10 +47,11 @@ public class B extends A {
 		b.show(2,3);
 		b.show1('B');
 		b.show2('H');
+		b.show5('D');// Sub class Object calling Super class Method.
 		
-		System.out.println("----------CCCCC------------------");
+		System.out.println("----------AAAABBB------------------");
 		ab.show(44);
-		//ab.show(2,4);
+		//ab.show(2,4);// It can call only overridden method of sub class and not non-overridden methods
 		ab.show1('C');
 		ab.show2('E');
 		//ab.show3(); // It can call only overridden method of sub class and not non-overridden methods.

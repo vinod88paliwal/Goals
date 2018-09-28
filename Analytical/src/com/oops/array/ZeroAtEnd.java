@@ -15,7 +15,7 @@ public class ZeroAtEnd {
            int count=0; // Count of non-zero elements
            
         	// Traverse the array. If arr[i] is non-zero, then swap the element at 
-            // index 'count' with the element at  index 'i'
+            // index i with the element at  index 'count'.
            for (int i = 0; i < n; i++) 
            {
         	   if(a[i] !=0 && count != i) {

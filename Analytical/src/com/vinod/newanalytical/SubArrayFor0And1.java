@@ -13,6 +13,7 @@ public class SubArrayFor0And1 {
         int count = 1;
         int prevCount=1;
         int i = 0;
+        
         while (i<(arr.length)-1)
         {
 

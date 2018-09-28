@@ -11,6 +11,7 @@ public class NextGreaterNumber1 {
         int i;
 
         // I) Start from the right most digit and find the first digit that is smaller than the digit next to it.
+
         for(i=n-1 ; i>0 ; i-- )
         {
             if(arr[i] > arr[i-1])
@@ -29,9 +30,7 @@ public class NextGreaterNumber1 {
             for (int j = i + 1; j < n; j++)
             {
                 if (arr[j] > x && arr[j] < arr[min])
-                {
-                    min = j;
-                }
+                        min = j;
             }
 
         //III) Swap the above found smallest digit with number[i-1]
@@ -57,19 +56,19 @@ public class NextGreaterNumber1 {
 
     	NextGreaterNumber1 obj = new NextGreaterNumber1();
 
-    	int number = 1234;
+    /*	int number = 1234;
 		System.out.println("Input number is:        " + number);
     	
     	//int[] digits = getDigits(number);
 		
 		//If it is integer then convert it in char[] and rest will be same.
 		char[] digits = Integer.toString(number).toCharArray();
-		int size = digits.length;
+		int size = digits.length;*/
     	
-       /* char arr[] = { '5','3','4','9','7','6' };
-        int size = arr.length;*/
+        char arr[] = { '5','3','4','9','7','6' };
+        int size = arr.length;
 
-        obj.nextGreater(digits,size);
+        obj.nextGreater(arr,size);
     }
     
     

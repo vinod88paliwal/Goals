@@ -12,16 +12,15 @@ public class DuplicateElementsInStringArray {
 		//char[] chrs = str.toCharArray();
 		//for (Character ch : chrs) {
 					//or
-			for(int i=0; i<str.length(); i++)
-			{
-				char ch = str.charAt(i);
-				
-			if(ch != 32){ // Removing space count
-			if (dupMap.containsKey(ch)) {
-				dupMap.put(ch, dupMap.get(ch) + 1);
-			} else {
-				dupMap.put(ch, 1);
-			}
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+
+			if (ch != 32) { // Removing space count
+				if (dupMap.get(ch) != null) {
+					dupMap.put(ch, dupMap.get(ch) + 1);
+				} else {
+					dupMap.put(ch, 1);
+				}
 			}
 		}
 			
@@ -45,7 +44,7 @@ public class DuplicateElementsInStringArray {
 
 		for (Integer no : arr)
 		{
-		 if(dupMap.containsKey(no))
+		 if(dupMap.get(no) != null)
 			 dupMap.put(no, dupMap.get(no) + 1);
 		 else
 			dupMap.put(no, 1);

@@ -14,14 +14,15 @@ class A1
  // Parameterised constructor
  public A1(int i) 
  {
+	 System.out.println("A1's class Parameterised constructor ");
      this.i = i;
  }
   
  //this constructor must be present - otherwise we will get runtime exception
  public A1()
  {
-     i = 50;
-     System.out.println("A1's class constructor called");
+	 System.out.println("A1's class default constructor called");
+    // i = 50;
  }
 }
 

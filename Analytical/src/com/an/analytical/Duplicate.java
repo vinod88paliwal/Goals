@@ -31,7 +31,7 @@ public class Duplicate {
 		for (char ch : chrs) {
 					
 			if(ch != 32){ // Removing space count
-			if (dupMap.containsKey(ch)) {
+			if (dupMap.get(ch) != null) {
 				dupMap.put(ch, dupMap.get(ch) + 1);
 			} else {
 				dupMap.put(ch, 1);

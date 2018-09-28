@@ -5,7 +5,7 @@ public class SubSequence {
 	public static void main(String[] args) {
 		
 		String s1 ="today is monday";
-		String s2 =  "tinm";
+		String s2 =  "timn";
 
 		int len1 = s1.length();
 		int len2 = s2.length();	
@@ -14,7 +14,7 @@ public class SubSequence {
 		
 		for(int i=0; i<len1 && j<len2 ; i++) {
 			
-			if(s2.charAt(i) == s1.charAt(j))
+			if(s1.charAt(i) == s2.charAt(j))
 				j++;
 		}
 		

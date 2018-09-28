@@ -4,7 +4,7 @@ package com.vinod.newanalytical;
 // using QuickSort based method. ASSUMPTION: ALL ELEMENTS IN ARR[] ARE DISTINCT
 public class NthSmallestNumber {
 	
-	static int partition(int arr[], int left, int right)
+private	static int partition(int arr[], int left, int right)
 	{
 	      int i = left, j = right;
 	      int tmp;
@@ -27,7 +27,7 @@ public class NthSmallestNumber {
 	      return i;
 	}
 	
-	static void quickSort(int arr[], int left, int right) {
+private	static void quickSort(int arr[], int left, int right) {
 
 	      int index = partition(arr, left, right);
 	     
@@ -37,7 +37,7 @@ public class NthSmallestNumber {
 	            quickSort(arr, index, right);
 	}
 	
-	private static int kthSmallest(int[] arr, int left, int right, int k) {
+	public static int kthSmallest(int[] arr, int left, int right, int k) {
 		
 		quickSort(arr, left, right); //3 4 5 7 12 19 26
 		

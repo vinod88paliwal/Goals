@@ -12,7 +12,8 @@ public final class ObjectFactoryWith5Objects {
 	public static ObjectFactoryWith5Objects getInstance() {
 		System.out.println("Pool Size : "+(instanceList.size()));
 		
-		if(instanceList.size() > MAX_INSTANCES) throw new RuntimeException("Hey! You have reached to the maximum of instances : "+MAX_INSTANCES);
+		if(instanceList.size() > MAX_INSTANCES) 
+			throw new RuntimeException("Hey! You have reached to the maximum of instances : "+MAX_INSTANCES);
 		
 		ObjectFactoryWith5Objects obj = new ObjectFactoryWith5Objects();
 		instanceList.add(obj);

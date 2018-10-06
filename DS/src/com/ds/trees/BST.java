@@ -5,11 +5,72 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+/*
+Binary Search Tree, is a node-based binary tree data structure which has the following properties:
+   The left subtree of a node contains only nodes with keys lesser than the node’s key.
+   The right subtree of a node contains only nodes with keys greater than the node’s key.
+   The left and right subtree each must also be a binary search tree.
+   There must be no duplicate nodes.
+ */
 
 public class BST {
 
 	Node root,root1,root2;
 
+	//Time Complexity: O(h), : Height of a tree.
+	public void insert(int data) {
+		root = insertRec(root, data);
+	}
+	
+	private Node insertRec(Node root, int data) {
+		Node newNode = new Node(data);
+		
+		/* If the tree is empty, return a new node */
+		  if(root == null)
+			  return  newNode;
+		  
+		  /* Otherwise, recur down the tree to create left and right subtree*/
+		  if(data < root.data)
+			  root.left = insertRec(root.left, data);
+		  
+		  else if(data > root.data)
+			  root.right = insertRec(root.right, data);
+		
+	   return root;	  
+	}
+	
+	public void addNode(int data) {
+
+		Node newNode = new Node(data);
+
+		if (root == null) {
+			root = newNode;
+			return;
+		}
+
+		Node current = root;
+		Node parent;
+
+		while (true) {
+			parent = current;
+
+			if (data < parent.data) {
+				current = current.left;
+
+				if (current == null) {
+					parent.left = newNode;
+					return;
+				}
+			} else {
+				current = current.right;
+				if (current == null) {
+					parent.right = newNode;
+					return;
+				}
+			}
+		}
+	}
+	
 	//Time Complexity: O(n) where n is number of nodes in given binary tree.
 	public int heightRecursion(Node root) {
 		
@@ -60,7 +121,7 @@ public class BST {
 			
 			path.add(root.data);
 			
-			if(root.left == null || root.right == null) {
+			if(root.left == null && root.right == null) {
 				printPaths(path);
 				path.remove(path.size() - 1);
 			}else {
@@ -79,6 +140,7 @@ public class BST {
 		while (it.hasNext()) {
 			
 			System.out.print(it.next());
+			
 			if(it.hasNext())
 				System.out.print("->");
 		}
@@ -156,13 +218,13 @@ public class BST {
 		
 		 /* Get the middle element and make it root */
 		int mid = (start + end) /2;
-		Node node = nodesList.get(mid);
+		Node root = nodesList.get(mid);
 		
 		/* Using index in Inorder traversal, construct left and right subtress */
-		node.left = buildTreeUtil(nodesList, start, mid-1);
-		node.right = buildTreeUtil(nodesList,mid+1, end);
+		root.left = buildTreeUtil(nodesList, start, mid-1);
+		root.right = buildTreeUtil(nodesList,mid+1, end);
 		
-		return node;
+		return root;
 	}
 	
 	
@@ -176,7 +238,7 @@ An empty tree is height-balanced. A non-empty binary tree T is balanced if:
 	/* Returns true if binary tree with root as root is height-balanced */
 	public boolean isHeightBalanceTree(Node root) {
 		
-		if(root 	== null)
+		if(root == null)
 			 return true;
 		
 		int lh; /* for height of left subtree */
@@ -284,37 +346,6 @@ sameTree(tree1, tree2)
  		return root;
  	}
 	
-	public void addNode(int data) {
-
-		Node newNode = new Node(data);
-
-		if (root == null) {
-			root = newNode;
-			return;
-		}
-
-		Node current = root;
-		Node parent;
-
-		while (true) {
-			parent = current;
-
-			if (data < parent.data) {
-				current = current.left;
-
-				if (current == null) {
-					parent.left = newNode;
-					return;
-				}
-			} else {
-				current = current.right;
-				if (current == null) {
-					parent.right = newNode;
-					return;
-				}
-			}
-		}
-	}
 	
 	public void preOrderTravseTree(Node root) {
 		
@@ -342,8 +373,6 @@ sameTree(tree1, tree2)
 			preOrderTravseTree(root.right);
 		}
 	}
-
-	
 	
 	public void display(Node root) {
 		if (root != null) {
@@ -358,17 +387,21 @@ sameTree(tree1, tree2)
 public static void main(String[] args) {
 		
 		BST tree = new BST();
-	//	tree.addNode(10); tree.addNode(20); tree.addNode(30); tree.addNode(40); tree.addNode(50);
-		
-		//tree.display(tree.root);
+//		tree.addNode(10); tree.addNode(20); tree.addNode(30); tree.addNode(40); tree.addNode(50);
+	/*	tree.insert(10); tree.insert(20); tree.insert(30); tree.insert(40); tree.insert(50);	
+		tree.display(tree.root);
+		System.out.println();
+		System.out.println("Height : "+tree.heightLoop(tree.root));
+	*/	
 		//System.out.println(tree.find(2));
 		
 		//Node root = new Node(5);
-       /* tree.root = new Node(1);
+        tree.root = new Node(1);
         tree.root.left = new Node(2);
         tree.root.right = new Node(3);
+        //tree.root.right.right = new Node(6);
         tree.root.left.left = new Node(4);
-        tree.root.left.right = new Node(5);*/
+        tree.root.left.right = new Node(5);
 		//tree.root.left.right = new Node(25);
 		/*root.left.left.left =new Node(30);
 		root.left.right.left = new Node(35);
@@ -382,8 +415,8 @@ public static void main(String[] args) {
 		
 		//tree.deleteTree(root);
 		
-		//List<Integer> list= new ArrayList<Integer>();
-		//tree.printRootToLeafPathRec(tree.root, list);
+		List<Integer> list= new ArrayList<Integer>();
+		tree.printRootToLeafPathRec(tree.root, list);
 		
 		//tree.display(tree.root);
 		
@@ -406,7 +439,7 @@ public static void main(String[] args) {
 		System.out.println("Is Height Balance : "+tree.isHeightBalanceTree(tree.root));*/
 		
 		
-		tree.root1 = new Node(1);
+		/*tree.root1 = new Node(1);
         tree.root1.left = new Node(2);
         tree.root1.right = new Node(3);
         tree.root1.left.left = new Node(4);
@@ -416,13 +449,13 @@ public static void main(String[] args) {
         tree.root2.left = new Node(2);
         tree.root2.right = new Node(3);
         tree.root2.left.left = new Node(4);
-        tree.root2.left.right = new Node(5);
+        tree.root2.left.right = new Node(5);*/
      //   System.out.println("Is Balance Identical? : "+tree.isTreesIdentical(tree.root1,tree.root2));
         
       //  System.out.println("Is Balance Identical? : "+tree.areIdentical(tree.root1,tree.root2));
         
         
-        Node root = new Node(4);
+        /*Node root = new Node(4);
 		root.left = new Node(2);
 		root.right = new Node(6);
 		root.left.left = new Node(1);
@@ -432,7 +465,7 @@ public static void main(String[] args) {
 
 		Node root11 =  tree.mirrorTree(root);
         tree.inOrderTravseTree(root11);
-        
+        */
         
         
 	}

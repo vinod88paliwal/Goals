@@ -8,8 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import com.sun.xml.internal.ws.encoding.soap.DeserializationException;
-
 /// superclass A2 - implementing Serializable interface
 class A2 implements Serializable
 {
@@ -46,7 +44,7 @@ class B2 extends A2
  // we can prevent - subclass from de-serialization
  public void readObject(ObjectInputStream in) throws IOException
  {
-     throw new DeserializationException("Can`t Deserialize");
+     //throw new NotDeserializationException("Can`t Deserialize");
  }
   
 }

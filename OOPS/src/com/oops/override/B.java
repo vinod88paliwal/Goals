@@ -2,12 +2,14 @@ package com.oops.override;
 
 public class B extends A{
 
+	@Override
 	public void show1(){  // Can increase the visibility in overridden method (in sub class) but can`t decrease it.
 		System.out.println("show1 of B");
 	}
 	
+	//@Override // Can`t override using static 
 	public static void show2(){
-		System.out.println("static of B");
+		System.out.println("show2 static of B");
 	}
 	
 	
